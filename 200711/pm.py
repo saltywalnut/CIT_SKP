@@ -9,7 +9,7 @@
 
 n = 2
 
-while n < 100000:
+while n < 1000:
     divider = 2
     count = 0
 
@@ -21,4 +21,4 @@ while n < 100000:
     if count == 0:
         print (n)
 
-    n = n+1
+    n = n + 1
