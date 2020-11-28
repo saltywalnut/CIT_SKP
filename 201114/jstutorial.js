@@ -77,14 +77,53 @@
 //
 //   console.log(fi3)
 // }
-
-var a = [1, 3, false, "hi"]
-console.log(a[0] + a[1])
-var b = {name : "Sally", age : 88, married : true}
-console.log(b.age + 10)
-
-function add5(num){
-  return num + 5
+//
+// var x = 1
+// var num = 5
+//
+// function fibo(num){
+//   if (x<num){
+//     x = x + (x-1)
+//   }
+//   else {
+//     return x
+//   }
+// }
+// console.log(x)
+//
+// function add(a,b){
+//   console.log(a+b+3)
+//   return a+b
+// }
+// add (7,4)
+// console.log(add(1,2))
+// var meals = [8,3.5,0.3,]
+function eat(done){
+  var food = 0
+  if (done < 1){
+    food = ["starve",1]
+  }
+  else if (done < 5){
+    food = ["ramyun",4.5]
+    // mymoney -= 4.5
+  }
+  else if (done < 10){
+    food = ["mcdonalds",6]
+    // mymoney -= 6
+  }
+  else if (done < 20){
+    food = ["curry",13]
+    // mymoney -= 13
+  }
+  else {
+    food = ["steak",40]
+    // mymoney -=40
+  }
+  return food
 }
 
-console.log( add5(31) )
+var mymoney = 219
+while (mymoney > 0){
+  console.log(eat(mymoney)[0]+mymoney)
+  mymoney -= eat(mymoney)[1]
+}
