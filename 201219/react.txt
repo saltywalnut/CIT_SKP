@@ -1,0 +1,10 @@
+npm start
+cd ..
+sematic ui react
+var let const
+let can reassign
+const cannot reassign
+()=>{}
+fun ... (){
+
+}

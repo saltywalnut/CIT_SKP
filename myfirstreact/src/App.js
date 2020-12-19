@@ -1,21 +1,78 @@
+import { Button, Input, Rating, Dropdown } from "semantic-ui-react";
+
+var x = "test";
+x = "test 2";
+let y = "not test";
+y = "maybe test";
+const z = "test2";
+// z = "test3"
+
 function App() {
   return (
     <div>
-    <Name/>
-    <p>a k</p>
+      <Name />
+      <p>a</p>
+      <Good />
     </div>
   );
 }
+
+const languageOptions = [
+  { key: "Arabic", text: "Arabic", value: "Arabic" },
+  { key: "Chinese", text: "Chinese", value: "Chinese" },
+  { key: "Danish", text: "Danish", value: "Danish" },
+  { key: "Dutch", text: "Dutch", value: "Dutch" },
+  { key: "English", text: "English", value: "English" },
+  { key: "French", text: "French", value: "French" },
+  { key: "German", text: "German", value: "German" },
+  { key: "Greek", text: "Greek", value: "Greek" },
+  { key: "Hungarian", text: "Hungarian", value: "Hungarian" },
+  { key: "Italian", text: "Italian", value: "Italian" },
+  { key: "Japanese", text: "Japanese", value: "Japanese" },
+  { key: "Korean", text: "Korean", value: "Korean" },
+  { key: "Lithuanian", text: "Lithuanian", value: "Lithuanian" },
+  { key: "Persian", text: "Persian", value: "Persian" },
+  { key: "Polish", text: "Polish", value: "Polish" },
+  { key: "Portuguese", text: "Portuguese", value: "Portuguese" },
+  { key: "Russian", text: "Russian", value: "Russian" },
+  { key: "Spanish", text: "Spanish", value: "Spanish" },
+  { key: "Swedish", text: "Swedish", value: "Swedish" },
+  { key: "Turkish", text: "Turkish", value: "Turkish" },
+  { key: "Vietnamese", text: "Vietnamese", value: "Vietnamese" },
+];
+
 function popup() {
-  alert ("string")
+  alert(z);
 }
+
+const Good = () => (
+  <div>
+    <h1> not hello</h1>{" "}
+    <Dropdown
+      button
+      className="icon"
+      floating
+      labeled
+      icon="world"
+      options={languageOptions}
+      search
+      text="Select Language"
+    />
+  </div>
+);
 
 function Name() {
   return (
     <div>
-    <h1> hello </h1>
-    <button onClick = {popup}>a</button>
+      <h1> hello </h1>
+      <button onClick={popup}>a</button>
+      <Button primary onClick={popup}>
+        {y}
+      </Button>
+      <Input focus placeholder={x} />
+      <Rating icon="star" defaultRating={3} maxRating={4} />
     </div>
-  )
+  );
 }
+
 export default App;
