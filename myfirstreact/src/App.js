@@ -1,4 +1,5 @@
 import { Button, Input, Rating, Dropdown } from "semantic-ui-react";
+import React from "react";
 
 var x = "test";
 x = "test 2";
@@ -13,9 +14,41 @@ function App() {
       <Name />
       <p>a</p>
       <Good />
+      <TestInput />
     </div>
   );
 }
+
+class TestInput extends React.Component {
+  constructor () {
+    super ()
+    this.state = {message: "amu string"}
+  }
+  render() {
+    return (
+      <div>
+        {" "}
+        <Input
+          onChange={(e) => {
+            this.setState({message:e.target.value});
+          }}
+        />{" "}
+        <Button
+          onClick={() => {
+            alert(this.state.message);
+          }}
+        >
+          {" "}
+          Button{" "}
+        </Button>{" "}
+      </div>
+    );
+  }
+}
+
+// function alert() {
+//   alert (TestInput);
+// }
 
 const languageOptions = [
   { key: "Arabic", text: "Arabic", value: "Arabic" },
