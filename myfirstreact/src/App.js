@@ -20,27 +20,43 @@ function App() {
 }
 
 class TestInput extends React.Component {
-  constructor () {
-    super ()
-    this.state = {message: "amu string"}
+  constructor() {
+    super();
+    this.state = { message: "",user: "", messagelist: [] };
   }
   render() {
+    console.log(this.state.message);
+    console.log(this.state.messagelist);
     return (
       <div>
-        {" "}
         <Input
           onChange={(e) => {
-            this.setState({message:e.target.value});
+            this.setState({ user: e.target.value });
           }}
+          value={this.state.user}
+        />{" "}
+        <Input
+          onChange={(e) => {
+            this.setState({ message: e.target.value });
+          }}
+          value={this.state.message}
         />{" "}
         <Button
           onClick={() => {
-            alert(this.state.message);
+            alert(this.state.message+this.state.user);
+            this.setState({
+              messagelist: [...this.state.messagelist, {msg:this.state.message,u:this.state.user}],
+              message: "",
+              user: ""
+            });
           }}
         >
           {" "}
           Button{" "}
         </Button>{" "}
+        {this.state.messagelist.map((m) => (
+          <p> {m.u} : {m.msg} </p>
+        ))}
       </div>
     );
   }
