@@ -1,5 +1,6 @@
-import { Button, Input, Rating, Dropdown } from "semantic-ui-react";
+import { Button, Input, Rating, Dropdown, Icon, Label} from "semantic-ui-react";
 import React from "react";
+import moment from "moment"
 
 var x = "test";
 x = "test 2";
@@ -45,7 +46,7 @@ class TestInput extends React.Component {
           onClick={() => {
             alert(this.state.message+this.state.user);
             this.setState({
-              messagelist: [...this.state.messagelist, {msg:this.state.message,u:this.state.user}],
+              messagelist: [...this.state.messagelist, {msg:this.state.message,u:this.state.user,likes:3}],
               message: "",
               user: ""
             });
@@ -54,9 +55,27 @@ class TestInput extends React.Component {
           {" "}
           Button{" "}
         </Button>{" "}
-        {this.state.messagelist.map((m) => (
-          <p> {m.u} : {m.msg} </p>
+        {this.state.messagelist.map((m, idx) => (
+          <p> {m.u} : {m.msg} {moment().format("AHm")}
+          <div>
+            <Button as='div' labelPosition='right'>
+              <Button icon onClick = {()=> {
+                let s = this.state.messagelist
+                s[idx].likes +=1
+                this.setState({messagelist:s})
+              }} >
+                <Icon name='heart' />
+                Like
+              </Button>
+              <Label as='a' basic pointing='left'>
+                {m.likes}
+              </Label>
+            </Button>
+
+          </div>
+          </p>
         ))}
+
       </div>
     );
   }
